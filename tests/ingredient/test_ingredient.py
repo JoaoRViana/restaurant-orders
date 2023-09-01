@@ -15,4 +15,3 @@ def test_ingredient():
     assert farinha.__hash__() != hash(queijo_gorgonzola)
     assert queijo_gorgonzola.__repr__() == (
         f"Ingredient('{queijo_gorgonzola.name}')")
-    
