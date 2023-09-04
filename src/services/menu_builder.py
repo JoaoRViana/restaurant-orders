@@ -31,7 +31,8 @@ class MenuBuilder:
         for i in self.menu_data.dishes:
             restrictions = i.get_restrictions()
             all_ingredients = i.get_ingredients()
-            if restriction is None or restriction not in restrictions:
+            if (restriction is None or restriction not in restrictions) and (
+                    self.inventory.check_recipe_availability(i)):
                 obj = {
                         "dish_name": i.name,
                         "ingredients": all_ingredients,
