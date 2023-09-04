@@ -32,7 +32,7 @@ class MenuBuilder:
             restrictions = i.get_restrictions()
             all_ingredients = i.get_ingredients()
             if (restriction is None or restriction not in restrictions) and (
-                    self.inventory.check_recipe_availability(i)):
+                    self.inventory.check_recipe_availability(i.recipe)):
                 obj = {
                         "dish_name": i.name,
                         "ingredients": all_ingredients,

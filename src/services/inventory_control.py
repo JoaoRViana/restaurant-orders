@@ -26,10 +26,18 @@ class InventoryMapping:
         self.inventory = read_csv_inventory(inventory_file_path)
 
     # Req 5.1
+    def check_inventory(self, recipe_name):
+        ingredientes = self.inventory.keys()
+        ingredient_names = []
+        for i in ingredientes:
+            ingredient_names.append(i.name)
+        return (recipe_name in ingredient_names)
+
     def check_recipe_availability(self, recipe: Recipe) -> bool:
         avalaible = []
         for i in recipe:
-            if self.inventory[i] >= recipe[i]:
+            if ((self.check_inventory(i.name)) and
+               (self.inventory[i] >= recipe[i])):
                 avalaible.append(True)
             else:
                 avalaible.append(False)
